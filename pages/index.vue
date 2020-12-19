@@ -9,11 +9,11 @@
       </div>
 
       <div class='works'>
-       <Carousel />
-     </div>
-    
-  </section>
-      <div class="discounts">
+       <Caroosel />
+     </div>    
+    </section>
+
+    <div class="discounts">
       <h2 class='section-headline'>акции</h2>
       <p>Поделись ссылкой на меня в Instagram и получи скидку 5% на маникюр или педикюр</p>
     </div>
@@ -23,7 +23,7 @@
 
 <script>
 import Header from '@/components/Header'
-import Carousel from '@/components/Carousel'
+import Caroosel from '@/components/Caroosel'
 export default {
   
 }
@@ -36,6 +36,7 @@ export default {
   max-width: 100%;
   margin:0;
 }
+
 section{
   width: 100%;
   display: flex;
@@ -44,53 +45,48 @@ section{
 .works{
   width: 50%;
 }
+
 #about{
   display: flex;
-  width:100%;
+  width: 100%;
   flex-direction: row;
-  height: 700px;  
+  height: 700px;
   justify-content: space-around;
-  
-  
 }
 .section-headline{
   text-align: center;
   font-weight: 600;
   color: rgba(0,0,0,.7);
 }
-
-
 .about-me{
   width:45%;
-}
-.about-me > ul{
-  
-  margin: auto;
-  list-style: none;
-  line-height: 35px;
-  text-align: center;
+  font-size: 22px;
+} 
+.discounts{
+  width: 50%;
+  font-size: 22px;
 }
 
 @media(max-width:500px){
-  
   .illustration{
-  top:-310px;
+    top: -310px;
   }
+  
   .main-block{
-  top:-120px;
-  } 
-  .about-me{
-  width:90%;
+    top: -120px;
   }
+  
+  .about-me{
+    width:90%;
+  }
+  
 }
 
 @media(max-width: 810px){
   #about{
     flex-direction: column;
-    top:250px;
+    top: 250px;
   }
 }
-
-
 
 </style>
