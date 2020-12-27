@@ -1,29 +1,30 @@
 <template>
   <div class="main-block">
-    <Header />
-    <section id='about'>
+    
+    <div class='about'>
+
       <div class='about-me'>
-        <h2 class='section-headline'>обо мне</h2>
-        
-        <p>Меня зовут Мика. Я начала изучать искусство маникюра 8 лет назад, и на протяжении последних трех лет я с удовольствием посвящаю себя только этой сфере. Опыт я получала в Москве, а теперь готова радовать Вас маникюром в Оше. </p>        
+        <div class="heading">
+          <div class='portrait'></div>
+          <h2 class='section-headline'>Обо мне</h2>
+        </div>
+        <p>Меня зовут Мика. Я начала изучать искусство маникюра 8 лет назад, и на протяжении последних трех лет с удовольствием посвящаю себя только этой сфере. Опыт я получала в Москве, а теперь готова радовать Вас маникюром и педикюром в Оше. Работаю с покрытием, формой, длиной и дизайном, 
+        давайте исполнять Ваши желания вместе!</p>        
       </div>
 
       <div class='works'>
-       <Caroosel />
+        <h2 class="section-headline">мои работы</h2>
+       <Slider />
      </div>    
-    </section>
-
-    <div class="discounts">
-      <h2 class='section-headline'>акции</h2>
-      <p>Поделись ссылкой на меня в Instagram и получи скидку 5% на маникюр или педикюр</p>
     </div>
+
+   
 </div>    
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header'
-import Caroosel from '@/components/Caroosel'
+import Slider from '@/components/Slider'
 export default {
   
 }
@@ -31,62 +32,96 @@ export default {
 
 
 
-<style>
-.main-block{
-  max-width: 100%;
-  margin:0;
-}
+<style lang='sass'>
 
-section{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.works{
-  width: 50%;
-}
+@font-face
+    font-family: 'Pangolin'
+    font-style: normal
+    font-weight: 500
+    font-display: swap
+    src: url('~assets/fonts/Pangolin.ttf') format('truetype')
 
-#about{
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  height: 700px;
-  justify-content: space-around;
-}
-.section-headline{
-  text-align: center;
-  font-weight: 600;
-  color: rgba(0,0,0,.7);
-}
-.about-me{
-  width:45%;
-  font-size: 22px;
-} 
-.discounts{
-  width: 50%;
-  font-size: 22px;
-}
+.main-block
+  max-width: 100%
+  margin: 0
 
-@media(max-width:500px){
-  .illustration{
-    top: -310px;
-  }
+.works
+  width: 50%
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  overflow: hidden
+
+.about
+  display: flex
+  width: 100%
+  flex-direction: row
+  // height: 700px
+  justify-content: space-between
+
+.about-me
+  overflow: hidden
+  margin: 0 auto auto 90px
+  width:40%
+  font-size: 22px
+  text-align: center
+
+.about-me p
+  font-family: 'Pangolin'
+  font-size: 26px
+  text-align: justify
+
+.heading
+  width: 70%
+  height: 230px
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+
+.portrait
+  height: 150px
+  width: 150px
+  border-radius: 50%
+  background-image: url('/img/port.jpeg')
+  transform: rotate(-25deg)
+  background-size: cover
+  position: relative
+  top: 40px
+
+.mikanails
+  overflow: hidden
+
+.discounts
+  width: 50%
+  font-size: 22px
+
+
+@media(max-width:500px)
+  .illustration
+    top: -310px
   
-  .main-block{
-    top: -120px;
-  }
+  .works, .about-me
+    width: 95%
+    margin: auto
   
-  .about-me{
-    width:90%;
-  }
+  img
+    width: 350px
   
-}
+  .main-block
+    top: -120px
 
-@media(max-width: 810px){
-  #about{
-    flex-direction: column;
-    top: 250px;
-  }
-}
+  .works
+    margin-top: 30px
 
+@media(max-width: 810px)
+  .about
+    flex-direction: column
+    top: 250px
+
+  .works, .about-me
+    width: 90%
+    margin: auto
+  .works
+    margin-top: 30px
 </style>
