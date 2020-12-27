@@ -95,6 +95,10 @@
 
 @media(max-width: 500px)
 	.sliderBlock
+		max-width: 100%
+	.slide
+		img
+			max-width: 100%
 
 
 </style>

@@ -6,7 +6,7 @@
       <div class='about-me'>
         <div class="heading">
           <div class='portrait'></div>
-          <h2 class='section-headline'>Обо мне</h2>
+          <h2 class='section-headline'>обо мне</h2>
         </div>
         <p>Меня зовут Мика. Я начала изучать искусство маникюра 8 лет назад, и на протяжении последних трех лет с удовольствием посвящаю себя только этой сфере. Опыт я получала в Москве, а теперь готова радовать Вас маникюром и педикюром в Оше. Работаю с покрытием, формой, длиной и дизайном, 
         давайте исполнять Ваши желания вместе!</p>        
@@ -59,6 +59,7 @@ export default {
   flex-direction: row
   // height: 700px
   justify-content: space-between
+  margin-bottom: 30px
 
 .about-me
   overflow: hidden

@@ -65,14 +65,16 @@ export default {
   display: flex
   flex-direction: row
   justify-content: space-between
+  align-items: center
   font-family: Pangolin
   font-size: 24px
-
+.prices-block
+  min-width: 70%
 .position
   color: rgba(0,0,0,.8)
 .price
   margin-left: 20px
-  min-width: 60px
+  min-width: 70px
   text-align: right
 
 .discounts
