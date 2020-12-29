@@ -10,7 +10,7 @@
         <div class="navbar">
           <ul class="navlist">
             <li class="nav-link"><NuxtLink to='/'>мастер</NuxtLink></li>
-            <li class="nav-link"><NuxtLink to='/prices'>услуги</NuxtLink></li>
+            <li class="nav-link"><NuxtLink to='/prices'>цены</NuxtLink></li>
             <li class="nav-link"><NuxtLink to='/contacts'>контакты</NuxtLink></li>
           </ul>
         </div>

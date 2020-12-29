@@ -102,12 +102,7 @@ export default {
 
 .discounts
   margin: 40px auto 30px auto
-  p    
-    color: rgba(0,0,0,.9)
-    opacity: .8
-    font-family: Amatic-Regular
-    font-size: 40px
-    text-align: center
+
 
 .coupon
   background-color: rgb(219, 195, 206)
@@ -126,11 +121,16 @@ export default {
   padding: 15px
   max-height: 100%
   overflow-y: hidden
+  p    
+    color: rgba(0,0,0,.9)
+    opacity: .8
+    font-family: Amatic-Regular
+    font-size: 40px
+    text-align: center
 
 h4
   text-align: center
   font-family: Amatic-Regular
-
   font-size: 56px
   font-weight: 800
 
@@ -147,7 +147,7 @@ h4
   .discounts
     width: 95%
     p
-      font-size: .75rem
+      font-size: 1rem
 
   span
     font-size: 14px
