@@ -13,7 +13,16 @@
 
     <div class="discounts">
       <h2 class='section-headline'>акции</h2>
-      <p>Поделись ссылкой на меня в Instagram и получи скидку 5% на маникюр или педикюр</p>
+      
+      <div class="coupon">
+        <div class="discount-text">        
+          <h4>-25%</h4>
+          <p class="share">Поделись</p>
+          <p>ссылкой на меня в Instagram и получи скидку 25% на маникюр или педикюр</p>
+        </div>
+        <img src='/img/rollover.jpg'/>
+      </div>
+      
     </div>
 </div>    
   </div>
@@ -39,7 +48,7 @@ export default {
       {title: 'Моделирование ногтей', price: 1600},
       {title: 'Френч', price: 200},
       {title: 'Аппаратный маникюр без покрытия', price: 300},
-      {title: 'Аппаратный педикюр без покрытия', price: 450},
+      {title: 'Аппаратный педикюр без покрытия', price: 650},
       {title: 'Комбинированный маникюр без покрытия', price: 300},
       {title: 'Маникюр и любой дизайн гель-лаком', price: 700},      
       ]
@@ -52,6 +61,18 @@ export default {
 
 
 <style scoped lang="sass">
+@font-face
+    font-family: 'Rubik'
+    font-style: normal
+    font-weight: 600
+    font-display: swap
+    src: url('~assets/fonts/Rubik.ttf') format('truetype')
+@font-face
+    font-family: 'Amatic-Regular'
+    font-style: normal
+    font-weight: 600
+    font-display: swap
+    src: url('~assets/fonts/Amatic-Regular.ttf') format('truetype')   
 .main-block
   max-width: 100%
   margin: 0
@@ -76,24 +97,58 @@ export default {
   margin-left: 20px
   min-width: 70px
   text-align: right
+  span
+    text-decoration: underline
 
 .discounts
-  margin-top: 40px
-  width: 50%
-  font-size: 22px
-  font-family: Pangolin
-  margin-bottom: 30px
+  margin: 40px auto 30px auto
+  p    
+    color: rgba(0,0,0,.9)
+    opacity: .8
+    font-family: Amatic-Regular
+    font-size: 40px
+    text-align: center
 
-  p
-    text-align: justify
-span
-  text-decoration: underline
+.coupon
+  background-color: rgb(219, 195, 206)
+  display: flex
+  flex-direction: row
+  align-items: center
+
+  
+  img
+    width: 60%    
+    height: auto
+
+.discount-text
+  text-transform: uppercase
+  width: 40%
+  padding: 15px
+  max-height: 100%
+  overflow-y: hidden
+
+h4
+  text-align: center
+  font-family: Amatic-Regular
+
+  font-size: 56px
+  font-weight: 800
+
+.share
+  letter-spacing: 10px
+  font-weight: 600
+  width: 100%
+  text-align: center
 
 @media(max-width:500px)
   
   .main-block
     top: -120px
-  
+  .discounts
+    width: 95%
+    p
+      font-size: .75rem
+
   span
     font-size: 14px
 
