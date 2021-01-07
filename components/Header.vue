@@ -3,7 +3,7 @@
     <div class="navpannel">
         <NuxtLink to='/'>
         <div class="logo-block">
-          <img class='logo-img' src="img/nail_logo.png">
+          <img class='logo-img' src="/img/nail_logo.png">
           <div class="mikanails">mika nails</div>
         </div>
         </NuxtLink>
@@ -16,7 +16,7 @@
         </div>
       </div>
     <div class="illustration">
-        <img src="img/ladies.png">
+        <img src="/img/ladies.png">
       </div>
  </div>
 </template>

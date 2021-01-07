@@ -43,6 +43,7 @@ export default {
   modules: [
     'nuxt-agile',
     'nuxt-fontawesome',
+    '@nuxtjs/sitemap'
   ],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

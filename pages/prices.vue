@@ -35,14 +35,14 @@
 </template>
 
 <script>
-import Box from '@/components/Box'
+
 export default {
   data(){
     return{      
       allPositions:[
       {title: 'Маникюр + однотонное покрытие гель-лаком', price: 700},
       {title: 'Маникюр + покрытие гель-лаком (френч)', price: 900},
-      {title: 'Педикюр + гель-лак', price: 500},
+      {title: 'Педикюр + покрытие', price: 1200},
       {title: 'Наращивание одного ногтя', price: 100},
       {title: 'Реставрация одного ногтя', price: 50},
       {title: 'Снятие покрытия', price: 100},
@@ -53,7 +53,7 @@ export default {
       {title: 'Стразы', price: 50},
       {title: 'Простой дизайн', price: 0},
       {title: 'Моделирование ногтей', price: 1600},
-      {title: 'Френч', price: 200},
+      {title: 'Французский маникюр', price: 200},
       {title: 'Аппаратный маникюр без покрытия', price: 300},
       {title: 'Аппаратный педикюр без покрытия', price: 650},
       {title: 'Комбинированный маникюр без покрытия', price: 300},
@@ -150,7 +150,7 @@ export default {
 .discount-text
   text-transform: uppercase
   width: 40%
-  padding: 15px
+  padding: 13px
   max-height: 100%
   overflow-y: hidden
   p    
@@ -197,7 +197,7 @@ input[type=checkbox]:checked + .heart
   font-size: 35px
   vertical-align: middle
   cursor: pointer 
-  background-image: url(http://csscheckbox.com/checkboxes/u/csscheckbox_8e18963f69ee967a38963e6329ca386d.png)
+  background-image: url('/img/hrts.png')
   -webkit-touch-callout: none
   -webkit-user-select: none 
   -moz-user-select: none
@@ -208,6 +208,8 @@ input[type=checkbox]:checked + .heart
     width: 90%
 
 @media(max-width:500px)
+  .share
+    letter-spacing: 7px
   .service-item
     width: 95%
   .position

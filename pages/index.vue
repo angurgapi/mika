@@ -8,9 +8,16 @@
           <div class='portrait'></div>
           <h2 class='section-headline'>обо мне</h2>
         </div>
-        <p>Меня зовут Мика. Я начала изучать искусство маникюра 8 лет назад, и на протяжении последних трех лет с удовольствием посвящаю себя только этой сфере. Опыт я получала в Москве, а теперь готова радовать Вас маникюром и педикюром в Джалал-Абаде. Работаю с покрытием, формой, длиной и дизайном, 
-        давайте исполнять Ваши желания вместе!</p>        
-      </div>
+        <p>Меня зовут Мика. Я начала изучать искусство маникюра 8 лет назад, и на протяжении последних трех лет с удовольствием посвящаю себя только этой сфере. Опыт я получала в Москве, а теперь готова радовать Вас маникюром и педикюром в Джалал-Абаде.</p>
+        <div class='polish'>
+          <img src='/img/polish.png'/>
+        </div> 
+        <p class='polishes'>Работаю с покрытием, формой, длиной и дизайном, 
+        давайте исполнять Ваши желания вместе!</p>    
+               
+      
+      </div> 
+
 
       <div class='works'>
         <h2 class="section-headline">мои работы</h2>
@@ -57,9 +64,25 @@ export default {
   display: flex
   width: 100%
   flex-direction: row
-  // height: 700px
   justify-content: space-between
   margin-bottom: 30px
+
+.polish
+  width: 100%
+  height: auto
+  z-index: -1000
+  position: relative
+  top: 0
+  display: flex
+  justify-content: flex-end
+  img
+    width: 200px
+    opacity: .5
+.polishes
+  position: relative
+  top: -80px
+  width: 80%
+
 
 .about-me
   overflow: hidden
