@@ -4,10 +4,16 @@
     
     <div class='prices-block'>
 
-      <div v-for="(position) in allPositions" class="service-item">
+      <div v-for="(position, index) in allPositions" class="service-item">
             <p class='position'>{{ position.title }} </p>    
-            <p class="price">{{ position.price }} <span>c</span></p>     
-      </div> 
+            
+            <div class="pricebox">
+              <p class="price">{{ position.price }} <span>c</span></p>
+              <input class='invisible' type="checkbox" :id="`${index}`" @click='calculate()'>
+              <label class='heart' :for="`${index}`"></label>
+            </div>  
+      </div>
+      <div class="total">Итого: {{ total }} <span>c</span></div> 
      
     </div>     
 
@@ -29,6 +35,7 @@
 </template>
 
 <script>
+import Box from '@/components/Box'
 export default {
   data(){
     return{      
@@ -51,7 +58,19 @@ export default {
       {title: 'Аппаратный педикюр без покрытия', price: 650},
       {title: 'Комбинированный маникюр без покрытия', price: 300},
       {title: 'Маникюр и любой дизайн гель-лаком', price: 700},      
-      ]
+      ],
+      total: 0
+    }
+  },
+  methods: {
+    calculate(){
+      let sum = parseInt(event.target.parentNode.firstChild.textContent)
+      if(event.target.checked){
+        this.total += sum
+      }
+      else{
+        this.total -= sum
+      }
     }
   }
   
@@ -83,6 +102,7 @@ export default {
 .service-item
   width: 90%
   margin: auto
+  margin-top: 7px
   display: flex
   flex-direction: row
   justify-content: space-between
@@ -90,13 +110,27 @@ export default {
   font-family: Pangolin
   font-size: 24px
 .prices-block
-  min-width: 70%
+  min-width: 80%
 .position
   color: rgba(0,0,0,.8)
+  width: 65%
 .price
   margin-left: 20px
+  margin-right: 15px
   min-width: 70px
   text-align: right
+  span
+    text-decoration: underline
+.pricebox
+  display: flex
+  flex-direction: row
+  align-items: center
+
+.total
+  margin-top: 20px
+  text-align: center
+  font-size: 22px
+  font-family: 'Pangolin'
   span
     text-decoration: underline
 
@@ -108,9 +142,7 @@ export default {
   background-color: rgb(219, 195, 206)
   display: flex
   flex-direction: row
-  align-items: center
-
-  
+  align-items: center  
   img
     width: 60%    
     height: auto
@@ -140,8 +172,50 @@ h4
   width: 100%
   text-align: center
 
+.invisible
+  position: relative
+  z-index: -1000
+  left: 20px
+  overflow: hidden
+  clip: rect(0 0 0 0)
+  height: 1px
+  width: 1px 
+  margin: -1px 
+  padding: 0
+  border: 0
+
+input[type=checkbox]:checked + .heart
+  background-position: 0 -35px
+         
+.heart
+  padding-left: 40px
+  height: 35px
+  // display: inline-block
+  line-height: 35px
+  background-repeat: no-repeat
+  background-position: 0 0
+  font-size: 35px
+  vertical-align: middle
+  cursor: pointer 
+  background-image: url(http://csscheckbox.com/checkboxes/u/csscheckbox_8e18963f69ee967a38963e6329ca386d.png)
+  -webkit-touch-callout: none
+  -webkit-user-select: none 
+  -moz-user-select: none
+  user-select: none
+
+@media(max-width: 1200px)
+  .discounts
+    width: 90%
+
 @media(max-width:500px)
-  
+  .service-item
+    width: 95%
+  .position
+    width: 70%
+    font-size: 20px
+  .price
+    margin-left: 5px
+    margin-right: 10px
   .main-block
     top: -120px
   .discounts
@@ -152,8 +226,11 @@ h4
   span
     font-size: 14px
 
-
-@media(max-width: 810px)
-
-
+@media(max-width:330px)
+  .price
+    font-size: 18px
+    min-width: 55px
+  .discount-text
+    p
+      font-size: .8rem
 </style>
