@@ -25,13 +25,14 @@
      </div>    
     </div>
 
-   
-</div>    
-  </div>
+<Bottom />    
+</div>   
+
 </template>
 
 <script>
 import Slider from '@/components/Slider'
+import Bottom from '@/components/Bottom'
 export default {
   
 }

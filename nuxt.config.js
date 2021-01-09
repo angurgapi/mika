@@ -8,7 +8,7 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/icon/logo.png'  }
     ]
   },
 
@@ -43,7 +43,13 @@ export default {
   modules: [
     'nuxt-agile',
     'nuxt-fontawesome',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    ['storyblok-nuxt',
+      {
+        accessToken: 'B4kO4ieXQeUYVL07usmobQtt',
+        cacheProvider: 'memory'
+      }
+    ],
   ],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
