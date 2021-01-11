@@ -3,8 +3,7 @@
 
 <div class="sliderBlock">
 	<div class="slide" v-for="(item,i) in items" :key="i">
-        <img :src="item.src"/>
-        <!-- <h3>{{item.title}}</h3> -->
+        <img :src="item.src"/>     
     </div>
 
     <a class="prev" @click="plusSlides(-1)">&#10094;</a>
@@ -16,90 +15,83 @@
 
 
 <style lang="sass">
-	@font-face
-		font-family: 'Comfortaa'
-		font-style: normal
-		font-weight: 400
-		font-display: swap
-		src: url('~assets/fonts/Comfortaa-Medium.ttf') format('truetype')	  
+@font-face
+  font-family: 'Comfortaa'
+  font-style: normal
+  font-weight: 400
+  font-display: swap
+  src: url('~assets/fonts/Comfortaa-Medium.ttf') format('truetype')	  
 
-	.sliderBlock
-		overflow: hidden
-		position: relative
-		height: auto
-		display: flex
-		font-family: 'Lato', sans-serif
-		font-weight: 300
-		margin: 0 auto
-		max-width: 900px
-	
-	.slide
+.sliderBlock
+  overflow: hidden
+  position: relative
+  height: auto
+  display: flex
+  font-family: 'Lato', sans-serif
+  font-weight: 300
+  margin: 50px auto 100px auto
+  max-width: 900px
+  border-radius: 5%
 
-		align-items: center
-		color: #fff
-		display: none		
-		justify-content: center
-	h3
-		color: rgba(0,0,0,.4)
-		z-index: 1001
-		position: relative
-		bottom: 0
-		width: 100%
-		font-family: 'Comfortaa'
-		height: 40px
-		text-align: center
+.slide
+  align-items: center
+  color: #fff
+  display: none		
+  justify-content: center
+  img
+    height: 95vh
+    width: auto
+.prev, .next 
+  cursor: pointer
+  position: absolute
+  top: 50%
+  width: auto
+  margin-top: -22px
+  padding: 16px
+  color: white
+  font-weight: bold
+  font-size: 18px
+  transition: 0.6s ease
+  border-radius: 0 3px 3px 0
+  user-select: none
+.next
+  right: 0
+  border-radius: 3px 0 0 3px
 
-	img
-		width: 450px
-		height: auto	
+.prev:hover, .next:hover
+  background-color: rgba(0,0,0,.8)
 
-	.prev, .next 
-		cursor: pointer
-		position: absolute
-		top: 50%
-		width: auto
-		margin-top: -22px
-		padding: 16px
-		color: white
-		font-weight: bold
-		font-size: 18px
-		transition: 0.6s ease
-		border-radius: 0 3px 3px 0
-		user-select: none
-	.next
-		right: 0
-		border-radius: 3px 0 0 3px
-
-	.prev:hover, .next:hover
-		background-color: grba(0,0,0,.8)
-
-	.fade
-		-webkit-animation-name: fade
-		-webkit-animation-duration: 1.5s
-		animation-name: fade
-		animation-duration: 1.5s
+.fade
+  -webkit-animation-name: fade
+  -webkit-animation-duration: 1.5s
+  animation-name: fade
+  animation-duration: 1.5s
 
 @-webkit-keyframes fade
-	from
-		opacity: .4
-	to
-		opacity: 1
+  from
+    opacity: .4
+  to
+    opacity: 1
 
 @keyframes fade
-	from
-		opacity: .4
-	to
-		opacity: 1
+  from
+    opacity: .4
+  to
+    opacity: 1
 
+@media(max-width: 700px)
+  .slide
+    img
+      width: 650px
+      height: auto
 
 
 @media(max-width: 500px)
-	.sliderBlock
-		max-width: 100%
-	.slide
-		img
-			max-width: 100%
-
+  .sliderBlock
+    max-width: 100%
+  .slide
+    img
+      max-width: 100%
 
 </style>
 
@@ -127,7 +119,11 @@
           			{
           			src: 'img/nude/french.jpeg',
           			title: "френч"	
-          			}
+          			},
+          		{
+          			src: 'img/nude/redwhite.jpeg',
+          			title: "с узором"
+          		}
           
         		],
         		slideIndex: 1
@@ -145,6 +141,7 @@
 				for (let i=0; i < slides.length; i++){
 					slides[i].style.display = 'none'
 				}
+				slides[this.slideIndex - 1].classList.add('fade')
 				slides[this.slideIndex - 1].style.display = 'block'
 			},
 

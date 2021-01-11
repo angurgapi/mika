@@ -5,16 +5,14 @@
     <div class='prices-block'>
       
       <Priceitem 
-      v-for='item in priceitems' :title='item.title' :value='item.value' :id='item.id' />
+      v-for='item in priceitems' :key='item.id' :id='item.id' :title='item.title' :value='item.value' />
    
 
       <div class="total">Итого: {{ total }} <span>c</span></div> 
-    </div>
-   
+    </div>   
 
     <div class="discounts">
-      <h2 class='section-headline'>акции</h2>
-      
+       
       <div class="coupon">
         <div class="discount-text">        
           <h4>-25%</h4>
@@ -22,61 +20,15 @@
           <p>ссылкой на меня в Instagram и получи скидку 25% на маникюр или педикюр</p>
         </div>
         <img src='/img/rollover.jpg'/>
-      </div>
-      
+      </div>      
     </div>
-</div>    
-  </div>
+
+<div class="popup">
+  <p>нажмите на сердечко, чтобы выбрать услугу и посмотреть итоговую сумму</p>
+  <div class="close" @click='popup()'>понятно</div>
+</div>
+</div>
 </template>
-
-<script>
-import Priceitem from '@/components/Priceitem'
-
-
-export default {
-  asyncData(context){
-    return context.app.$storyapi
-    .get('cdn/stories',
-    {
-      version: 'draft',
-      starts_with: 'priceblock/'
-    })
-    .then(res => {
-      console.log(typeof(res.data.stories[0].id))
-      return{
-      priceitems: res.data.stories.map(it => {
-        return {       
-        title: it.content.title,
-        value: it.content.value,
-        id: it.id
-      }
-      })
-    }
-    })
-  },
-
-  data(){
-    return{      
-  
-      total: 0
-    }
-  },
-
-  methods: {
-    calculate(){
-
-      let sum = parseInt(event.target.previousSibling.previousSibling.textContent)
-      if(event.target.checked){
-        this.total += sum
-      }
-      else{
-        this.total -= sum
-      }
-    }
-  }  
-}
-</script>
-
 
 
 <style scoped lang="sass">
@@ -120,14 +72,13 @@ export default {
 .total
   margin-top: 20px
   text-align: center
-  font-size: 22px
+  font-size: 28px
   font-family: 'Pangolin'
   span
     text-decoration: underline
 
 .discounts
   margin: 40px auto 30px auto
-
 
 .coupon
   background-color: rgb(219, 195, 206)
@@ -163,7 +114,36 @@ h4
   width: 100%
   text-align: center
 
+.popup
+  width: 50vw
+  position: absolute
+  top: 40%
+  opacity: .9
+  background-color: #fff
+  z-index: 1010
+  border: 2px solid rgba(0,0,0,.4)
+  padding: 1rem
+  p
+    font-size: 36px
+    width: 80%
+    text-align: center
+    margin: auto
+    font-family: 'Pangolin'
 
+  .close
+    margin: 20px auto
+    background-color: rgba(135, 12, 55, 0.8)
+    height: 50px
+    width: 130px
+    border-radius: 10px
+    box-shadow: 2px 2px 5px #7a103e
+    color: #fff
+    font-size: 1.6rem
+    font-family: 'RobotoMono'
+    text-align: center
+    display: flex
+    align-items: center
+    justify-content: center
 
 @media(max-width: 1200px)
   .discounts
@@ -180,12 +160,63 @@ h4
     width: 95%
     p
       font-size: 1rem
-
+  .popup
+    width: 90vw
+    p
+      font-size: 28px
   span
     font-size: 14px
 
 @media(max-width:330px)
   .discount-text
     p
-      font-size: .8rem
+      line-height: 15px
+      font-size: .9rem
 </style>
+
+<script>
+import Priceitem from '@/components/Priceitem'
+export default {
+  asyncData(context){
+    return context.app.$storyapi
+    .get('cdn/stories',
+    {
+      version: 'draft',
+      starts_with: 'priceblock/'
+    })
+    .then(res => {
+      console.log(typeof(res.data.stories[0].id))
+      return{
+      priceitems: res.data.stories.map(it => {
+        return {       
+        title: it.content.title,
+        value: it.content.value,
+        id: it.id
+      }
+      })
+    }
+    })
+  },
+  data(){
+    return{  
+      total: 0
+    }
+  },
+
+  methods: {
+    popup(){
+      event.target.parentNode.style.display = 'none'
+    },
+
+    calculate(){
+      let sum = parseInt(event.target.previousSibling.previousSibling.textContent)
+      if(event.target.checked){
+        this.total += sum
+      }
+      else{
+        this.total -= sum
+      }
+    }
+  }  
+}
+</script>

@@ -2,6 +2,7 @@
   <div>
     <Header />
     <Nuxt />
+    <Footer />
   </div>
 </template>
 
@@ -24,25 +25,32 @@ html
   margin: 0
   overflow-x: hidden
 
+
 .section-headline
   color: rgba(135, 12, 55, .8)
+  text-transform: uppercase
   font-family: Pangolin
-  font-size: 32px
+  font-size: 2.5rem
   text-align: center
   font-weight: 600
   display: flex
   align-items: center
   justify-content: center
-  margin-bottom: 30px
-
+  margin: 20px auto 20px auto
+.marked
+  text-align: center
+  font-size: 56px
+  font-weight: 800
+  color: rgba(209, 75, 133, .8)
 @media(max-width:500px)
   .section-headline
-    font-size: 25px
+    font-size: 28px
 
 </style>
 
 <script>
   import Header from '@/components/Header'
+  import Footer from '@/components/Footer'
   export default {
   
 }

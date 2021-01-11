@@ -42,15 +42,20 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     'nuxt-agile',
-    'nuxt-fontawesome',
-    '@nuxtjs/sitemap',
+    'nuxt-fontawesome',   
     ['storyblok-nuxt',
       {
         accessToken: 'B4kO4ieXQeUYVL07usmobQtt',
         cacheProvider: 'memory'
       }
     ],
+    '@nuxtjs/sitemap',
+
   ],
+  sitemap: {
+    hostname: 'https://mika-nails.ru',
+    gzip: true
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {

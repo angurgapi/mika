@@ -1,22 +1,10 @@
 <template>
   <div class="main-block">
-    
-    <div class='about'>
+    <Card />   
+    <About />
+    <StagesGrid />
 
-      <div class='about-me'>
-        <div class="heading">
-          <div class='portrait'></div>
-          <h2 class='section-headline'>обо мне</h2>
-        </div>
-        <p>Меня зовут Мика. Я начала изучать искусство маникюра 8 лет назад, и на протяжении последних трех лет с удовольствием посвящаю себя только этой сфере. Опыт я получала в Москве, а теперь готова радовать Вас маникюром и педикюром в Джалал-Абаде.</p>
-        <div class='polish'>
-          <img src='/img/polish.png'/>
-        </div> 
-        <p class='polishes'>Работаю с покрытием, формой, длиной и дизайном, 
-        давайте исполнять Ваши желания вместе!</p>    
-               
-      
-      </div> 
+
 
 
       <div class='works'>
@@ -25,20 +13,10 @@
      </div>    
     </div>
 
-<Bottom />    
+
 </div>   
 
 </template>
-
-<script>
-import Slider from '@/components/Slider'
-import Bottom from '@/components/Bottom'
-export default {
-  
-}
-</script>
-
-
 
 <style lang='sass'>
 
@@ -52,67 +30,15 @@ export default {
 .main-block
   max-width: 100%
   margin: 0
+  background-color: rgba(255, 237, 219, .7)
 
 .works
-  width: 50%
+  width: 100%
   display: flex
   flex-direction: column
   justify-content: center
   align-items: center
   overflow: hidden
-
-.about
-  display: flex
-  width: 100%
-  flex-direction: row
-  justify-content: space-between
-  margin-bottom: 30px
-
-.polish
-  width: 100%
-  height: auto
-  z-index: -1000
-  position: relative
-  top: 0
-  display: flex
-  justify-content: flex-end
-  img
-    width: 200px
-    opacity: .5
-.polishes
-  position: relative
-  top: -80px
-  width: 80%
-
-
-.about-me
-  overflow: hidden
-  margin: 0 auto auto 90px
-  width:40%
-  font-size: 22px
-  text-align: center
-
-.about-me p
-  font-family: 'Pangolin'
-  font-size: 26px
-  text-align: justify
-
-.heading
-  width: 70%
-  height: 230px
-  display: flex
-  flex-direction: row
-  justify-content: space-between
-
-.portrait
-  height: 150px
-  width: 150px
-  border-radius: 50%
-  background-image: url('/img/port.jpeg')
-  transform: rotate(-25deg)
-  background-size: cover
-  position: relative
-  top: 40px
 
 .mikanails
   overflow: hidden
@@ -121,32 +47,34 @@ export default {
   width: 50%
   font-size: 22px
 
-
 @media(max-width:500px)
   .illustration
-    top: -310px
-  
-  .works, .about-me
+    top: -310px  
+  .works
     width: 95%
     margin: auto
-  
+  .heading
+    width: 100%
   img
-    width: 350px
-  
+    width: 350px  
   .main-block
     top: -120px
-
   .works
     margin-top: 30px
 
 @media(max-width: 810px)
-  .about
-    flex-direction: column
-    top: 250px
-
-  .works, .about-me
-    width: 90%
-    margin: auto
   .works
-    margin-top: 30px
+    width: 90%
+    margin: 30px auto
+ 
 </style>
+
+<script>
+import Slider from '@/components/Slider'
+import StagesGrid from '@/components/StagesGrid'
+import Card from '@/components/Card'
+import About from '@/components/About'
+export default {
+  
+}
+</script>

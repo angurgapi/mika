@@ -1,7 +1,9 @@
 <template>
   <div class="main-block">
     <div class="contact-block">
-      <h2 class='section-headline'>контакты</h2>
+  
+      <div class="contact-list">
+            <h2 class='section-headline'>контакты</h2>
       <div class="contact-item">      
         <font-awesome-icon :icon="['fas', 'phone']"/>
         <font-awesome-icon :icon="['fab', 'whatsapp']" style='margin-left: 10px; color: #04c240'/>
@@ -14,8 +16,10 @@
       <div class="contact-item">
         <font-awesome-icon :icon="['fab', 'vk']" style='color: #1e93b0'/>
         <a href="https://vk.com/id443314033" target="_blank">Махлие Умурзакова</a>
-     
+     </div>
       </div>
+
+      <div class='map'><a href="https://yandex.ru/maps/10312/djalal-abad/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Джалал‑Абад</a><a href="https://yandex.ru/maps/geo/771293475/?ll=72.988245%2C40.936758&utm_medium=mapframe&utm_source=maps&z=12.4" style="color:#eee;font-size:12px;position:absolute;top:14px;">Джалал-Абад — Яндекс.Карты</a><iframe src="https://yandex.ru/map-widget/v1/-/CCUI5JVygC" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
 
       
     </div>
@@ -28,8 +32,6 @@ export default {
 }
 </script>
 
-
-
 <style scoped lang="sass">
 .main-block
   max-width: 100%
@@ -37,6 +39,17 @@ export default {
   display: flex
   justify-content: center
   align-items: center
+
+.contact-block
+  margin: 40px auto 70px auto
+  width: 90%
+  font-size: 28px
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: row
+  margin-bottom: 50px
+  overflow: hidden
 
 .contact-item
   display: flex
@@ -46,20 +59,36 @@ a
   text-decoration: none
   color: rgba(0,0,0,.7)
   margin-left: 20px
-
-
-.contact-block
-  width: 100%
-  font-size: 22px
+  
+.map
+  position: relative
+  top: 30px
+  overflow: hidden
+  margin-left: 50px
   display: flex
-  align-items: center
-  flex-direction: column
-  margin-bottom: 50px
+  justify-content: center
+  iframe
+    width: 460px
+    height: 300px
+
+@media(max-width:1036px)
+  .contact-block
+    width: 95%
+    flex-direction: column
+    font-size: 24px
+  .map
+    width: 95%
+    margin: 30px 5px 30px 5px
 
 @media(max-width:500px)
   .main-block
     top: -120px
-  
+  .map
+    iframe
+      width: 100%
+      height: auto
+
+
 
 fa
   height: 40px

@@ -36,7 +36,6 @@
   display: flex
   flex-direction: column
   background: linear-gradient(90deg, rgba(237, 220, 227, 1) 0%, rgba(237, 220, 227, .2) 50%, rgba(230, 185, 181,1) 100%)
-  margin-bottom: 50px
 
 .navpannel
   height: 100px
@@ -82,7 +81,7 @@
   font-family: Pangolin
   letter-spacing: 3px
   color: rgba(0,0,0,.7)
-  font-size: 24px
+  font-size: 26px
   font-weight: 500
   color: rgba(0,0,0,.7)
   margin-right: 10px
