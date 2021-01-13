@@ -54,7 +54,6 @@ export default {
 .contact-item
   display: flex
   flex-direction: row
-
 a
   text-decoration: none
   color: rgba(0,0,0,.7)
@@ -87,9 +86,6 @@ a
     iframe
       width: 100%
       height: auto
-
-
-
 fa
   height: 40px
   width:40px

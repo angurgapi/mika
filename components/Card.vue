@@ -1,7 +1,7 @@
 <template>
 	<div class='wrapper'>
 		<div class="left">
-			<img src='/img/call.jpg' alt='phone'>
+			<img src='/img/call.webp' alt='phone'>
 		</div>
 		<div class="right">
 			<h4 class="marked">запись открыта</h4>
@@ -23,7 +23,6 @@
   flex-direction: row
   width: 80%
   box-shadow: 0 0 30px #333
-
 .left, .right
   width: 50%
   overflow: hidden
@@ -46,7 +45,6 @@
     opacity: .8
     font-size: 35px
     text-align: center
-
   
 @media(max-width: 1000px)
   .right

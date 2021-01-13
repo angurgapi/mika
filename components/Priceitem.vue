@@ -1,13 +1,10 @@
 <template>
-
 <div class="service-item">
    <h2 class="position">{{ title }}</h2>
    <p class="price">{{ value }} <span>с</span></p>
    <input class='invisible' type="checkbox" :id="`${id}`" @click='calculate()'>
    <label class='heart' :for="`${id}`"></label>      
 </div>
-
-
 </template>
 
 <style lang='sass'>
@@ -15,7 +12,6 @@
   display: flex
   flex-direction: row
   align-items: center
-
 .position
   color: rgba(0,0,0,.8)
   width: 65%
@@ -27,7 +23,6 @@
   text-align: right
   span
     text-decoration: underline
-
 .invisible
   position: relative
   z-index: -1000
@@ -39,14 +34,11 @@
   margin: -1px 
   padding: 0
   border: 0
-
 input[type=checkbox]:checked + .heart
-  background-position: 0 -35px
-         
+  background-position: 0 -35px         
 .heart
   padding-left: 40px
   height: 35px
-  // display: inline-block
   line-height: 35px
   background-repeat: no-repeat
   background-position: 0 0
@@ -58,7 +50,6 @@ input[type=checkbox]:checked + .heart
   -webkit-user-select: none 
   -moz-user-select: none
   user-select: none
-
 @media(max-width:500px)
   .position
     width: 70%
@@ -66,7 +57,6 @@ input[type=checkbox]:checked + .heart
   .price
     margin-left: 5px
     margin-right: 10px
-
 @media(max-width:330px)
   .price
     font-size: 18px
@@ -90,8 +80,7 @@ input[type=checkbox]:checked + .heart
 			}
 		},
 		methods:{
-			calculate(){
-				
+			calculate(){				
 				this.$parent.calculate()
 			}
 		}

@@ -5,14 +5,12 @@
     <div class='prices-block'>
       
       <Priceitem 
-      v-for='item in priceitems' :key='item.id' :id='item.id' :title='item.title' :value='item.value' />
-   
+      v-for='item in priceitems' :key='item.id' :id='item.id' :title='item.title' :value='item.value' />  
 
       <div class="total">Итого: {{ total }} <span>c</span></div> 
     </div>   
 
-    <div class="discounts">
-       
+    <div class="discounts">       
       <div class="coupon">
         <div class="discount-text">        
           <h4>-25%</h4>
@@ -22,7 +20,6 @@
         <img src='/img/rollover.jpg'/>
       </div>      
     </div>
-
 <div class="popup">
   <p>нажмите на сердечко, чтобы выбрать услугу и посмотреть итоговую сумму</p>
   <div class="close" @click='popup()'>понятно</div>
@@ -68,7 +65,6 @@
   display: flex
   flex-direction: row
   align-items: center
-
 .total
   margin-top: 20px
   text-align: center
@@ -76,10 +72,8 @@
   font-family: 'Pangolin'
   span
     text-decoration: underline
-
 .discounts
   margin: 40px auto 30px auto
-
 .coupon
   background-color: rgb(219, 195, 206)
   display: flex
@@ -101,7 +95,6 @@
     font-family: Amatic-Regular
     font-size: 40px
     text-align: center
-
 h4
   text-align: center
   font-family: Amatic-Regular
@@ -207,7 +200,6 @@ export default {
     popup(){
       event.target.parentNode.style.display = 'none'
     },
-
     calculate(){
       let sum = parseInt(event.target.previousSibling.previousSibling.textContent)
       if(event.target.checked){

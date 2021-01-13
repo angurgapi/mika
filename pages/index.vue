@@ -3,19 +3,12 @@
     <Card />   
     <About />
     <StagesGrid />
-
-
-
-
       <div class='works'>
         <h2 class="section-headline">мои работы</h2>
        <Slider />
      </div>    
     </div>
-
-
-</div>   
-
+  </div>
 </template>
 
 <style lang='sass'>
@@ -26,12 +19,10 @@
     font-weight: 500
     font-display: swap
     src: url('~assets/fonts/Pangolin.ttf') format('truetype')
-
 .main-block
   max-width: 100%
   margin: 0
   background-color: rgba(255, 237, 219, .7)
-
 .works
   width: 100%
   display: flex
@@ -39,10 +30,8 @@
   justify-content: center
   align-items: center
   overflow: hidden
-
 .mikanails
   overflow: hidden
-
 .discounts
   width: 50%
   font-size: 22px

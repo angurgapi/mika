@@ -1,18 +1,12 @@
 <template>
-
-
 <div class="sliderBlock">
 	<div class="slide" v-for="(item,i) in items" :key="i">
         <img :src="item.src"/>     
-    </div>
-
-    <a class="prev" @click="plusSlides(-1)">&#10094;</a>
+  </div>
+  <a class="prev" @click="plusSlides(-1)">&#10094;</a>
 	<a class="next" @click="plusSlides(1)">&#10095;</a>
 </div>
-
-
 </template>
-
 
 <style lang="sass">
 @font-face
@@ -20,8 +14,7 @@
   font-style: normal
   font-weight: 400
   font-display: swap
-  src: url('~assets/fonts/Comfortaa-Medium.ttf') format('truetype')	  
-
+  src: url('~assets/fonts/Comfortaa-Medium.ttf') format('truetype')
 .sliderBlock
   overflow: hidden
   position: relative
@@ -32,7 +25,6 @@
   margin: 50px auto 100px auto
   max-width: 900px
   border-radius: 5%
-
 .slide
   align-items: center
   color: #fff
@@ -57,10 +49,8 @@
 .next
   right: 0
   border-radius: 3px 0 0 3px
-
 .prev:hover, .next:hover
   background-color: rgba(0,0,0,.8)
-
 .fade
   -webkit-animation-name: fade
   -webkit-animation-duration: 1.5s
@@ -92,7 +82,6 @@
   .slide
     img
       max-width: 100%
-
 </style>
 
 <script>
@@ -123,8 +112,7 @@
           		{
           			src: 'img/nude/redwhite.jpeg',
           			title: "с узором"
-          		}
-          
+          		}          
         		],
         		slideIndex: 1
       		}
