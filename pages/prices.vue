@@ -1,6 +1,5 @@
 <template>
   <div class="main-block">  
-    <h2 class='section-headline'>цены</h2>
     
     <div class='prices-block'>
       
@@ -60,6 +59,7 @@
   font-size: 24px
 .prices-block
   min-width: 80%
+  margin-top: 50px
 
 .pricebox
   display: flex

@@ -1,10 +1,13 @@
 <template>
   <div class="main-block">
-    <Card />   
+    
     <About />
+    <Card />
+    <p class='intro'><span class='marked'>В</span>ажны все этапы работы с ногтями</p>
+    <p class="postscriptum">...и я не забываю об этом!</p>
     <StagesGrid />
       <div class='works'>
-        <h2 class="section-headline">мои работы</h2>
+      <p class='intro'><span class='marked'>П</span>римеры моих работ</p>
        <Slider />
      </div>    
     </div>
@@ -19,6 +22,12 @@
     font-weight: 500
     font-display: swap
     src: url('~assets/fonts/Pangolin.ttf') format('truetype')
+@font-face
+    font-family: 'handwritten'
+    font-style: normal
+    font-weight: 500
+    font-display: swap
+    src: url('~assets/fonts/handwritten.ttf') format('truetype')
 .main-block
   max-width: 100%
   margin: 0
@@ -35,10 +44,17 @@
 .discounts
   width: 50%
   font-size: 22px
-
+.intro
+  font-size: 2rem
+  width: 80%
+  text-align: center
+  margin: auto
+.postscriptum
+  font-family: handwritten
+  text-align: center
+  font-size: 2.5rem
+ 
 @media(max-width:500px)
-  .illustration
-    top: -310px  
   .works
     width: 95%
     margin: auto
@@ -46,8 +62,7 @@
     width: 100%
   img
     width: 350px  
-  .main-block
-    top: -120px
+
   .works
     margin-top: 30px
 

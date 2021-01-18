@@ -23,7 +23,7 @@
   font-family: 'Lato', sans-serif
   font-weight: 300
   margin: 50px auto 100px auto
-  max-width: 900px
+  max-width: 90vw
   border-radius: 5%
 .slide
   align-items: center

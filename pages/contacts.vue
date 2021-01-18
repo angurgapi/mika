@@ -3,7 +3,7 @@
     <div class="contact-block">
   
       <div class="contact-list">
-            <h2 class='section-headline'>контакты</h2>
+            <h2 class='section-headline'>связаться со мной</h2>
       <div class="contact-item">      
         <font-awesome-icon :icon="['fas', 'phone']"/>
         <font-awesome-icon :icon="['fab', 'whatsapp']" style='margin-left: 10px; color: #04c240'/>
@@ -88,7 +88,7 @@ a
       height: auto
 fa
   height: 40px
-  width:40px
+  width: 40px
   color: black
 
 </style>

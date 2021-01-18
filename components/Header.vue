@@ -1,49 +1,81 @@
 <template>
-  <div class='header'>
-    <div class="navpannel">
-        <NuxtLink to='/'>
-        <div class="logo-block">
-          <img class='logo-img' src="/img/nail_logo.webp">
-          <div class="mikanails">mika nails</div>
-        </div>
-        </NuxtLink>
-        <div class="navbar">
-          <ul class="navlist">
-            <li class="nav-link"><NuxtLink to='/'>мастер</NuxtLink></li>
-            <li class="nav-link"><NuxtLink to='/prices'>цены</NuxtLink></li>
-            <li class="nav-link"><NuxtLink to='/contacts'>контакты</NuxtLink></li>
-          </ul>
-        </div>
+  <div class='header'>    
+    <NuxtLink to='/'>
+      <div class="logo-block">
+        <img class='logo-img' src="/img/nail_logo.webp">
+        <div class="mikanails">mika nails</div>
       </div>
-    <div class="illustration">
-        <img src="/img/ladies.webp">
-      </div>
+    </NuxtLink>
+        
+    <div class="navbar" ref='nbar'>
+      <NuxtLink to='/'>мастер</NuxtLink>
+      <NuxtLink to='/prices'>цены</NuxtLink>
+      <NuxtLink to='/contacts'>контакты</NuxtLink>
+    </div>        
+      
+    <div class='hamburger' @click='processBars()' ref='bars'>
+      <font-awesome-icon :icon="['fas', 'bars']" class='hambars'/>
+    </div> 
+    
+    <div class="header-img" ref='banner'>
+      <p class='slogan'>Влюбись в свои руки</p><p class="slogan">уже сегодня</p>
+    </div>    
  </div>
 </template>
 
 <style lang='sass'>
 @font-face
-    font-family: 'Pangolin'
+    font-family: 'Montserrat'
     font-style: normal
     font-weight: 500
     font-display: swap
-    src: url('~assets/fonts/Pangolin.ttf') format('truetype')
+    src: url('~assets/fonts/Montserrat.ttf') format('truetype')
 .header
   width: 100%
-  height: 450px
+  // height: 500px
   display: flex
   flex-direction: column
-  background: linear-gradient(90deg, rgba(237, 220, 227, 1) 0%, rgba(237, 220, 227, .2) 50%, rgba(230, 185, 181,1) 100%)
-.navpannel
-  height: 100px
-  width: 100%
-  padding: 0 1.5rem 0 1.5rem
+.hamburger
+  position: absolute
+  z-index: 1010
+  right: 30px
+  top: 30px
+  height: 40px
+  width: 40px
   display: flex
-  justify-content: space-between
   align-items: center
+  justify-content: center
+  .hambars
+    color: #fff
+    height: 30px
+    width: 30px
+.header-img
+  height: 450px
+  background-image: url('/img/banners/5.webp')
+  background-size: cover
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  .slogan
+    font-size: 6rem
+    overflow: hidden
+    font-weight: 500
+    color: #fff
+    font-family: 'handwritten'
+    font-style: italic
+    letter-spacing: -2px
+    transform: rotate(-5deg)
+    line-height: 7.8rem
+    max-width: 90%
+    text-align: center
+
 .logo-block
   width: 75px
   height: 75px
+  position: absolute
+  top: 20px
+  left: 40px
   display: flex
   flex-direction: column
   align-items: center
@@ -51,51 +83,84 @@
   border: 3px solid rgba(0,0,0,0.9)
 .logo-img
   height: 30px
-  width: 32px
+  width: 32px  
 .mikanails
   text-align: center
   font-size: 18px
   font-family: Comfortaa
+
 .navbar
-  max-width: 350px
-  justify-content: space-around
-.navlist
-    display: flex
-    align-items: center
-    justify-content: space-between
-    flex-direction: row
-    list-style: none
-    padding-left: 0
-.nav-link a
-  text-decoration: none
-  font-family: Pangolin
-  letter-spacing: 3px
-  color: rgba(0,0,0,.7)
-  font-size: 26px
-  font-weight: 500
-  color: rgba(0,0,0,.7)
-  margin-right: 10px
-.nuxt-link, .nuxt-link-active
-  text-decoration: none
-  color: black
-.nav-link .nuxt-link-exact-active
-  color: rgba(135, 12, 55, .6)
-@media(max-width: 800px)
-  .nav-link
-    margin-right: 7px
-@media(max-width: 500px)
-  .navbar
-    ul
-      flex-direction: column    
-  .nav-link
-    a
-      font-size: 22px      
-.illustration
-  z-index: 1000
+  height: 130px
+  width: 100%
   display: flex
   justify-content: center
-.illustration img
-    height: 250px
-    width: 270px
+  align-items: center  
+  flex-direction: row
+  padding-left: 0
+  a
+    text-decoration: none
+    font-family: Montserrat
+    letter-spacing: 3px
+    color: rgba(0,0,0,.9)
+    font-size: 22px
+    font-weight: 600
+    margin-right: 20px
+  .nuxt-link-exact-active
+    color: rgba(0,0,0,.5)  
+.nuxt-link, .nuxt-link-active
+  text-decoration: none
+  color: rgba(0,0,0,.8)  
 
+
+@media(max-width: 700px)
+  .logo-block
+    top: 20px
+    left: 20px
+  .hamburger
+    display: flex
+  .navbar
+    display: none
+  .header-img
+    .slogan
+      font-size: 4rem
+      line-height: 6rem
+@media(max-width: 500px)  
+  .nav-link
+    a
+      font-size: 26px
+.showNav
+  display: flex
+  flex-direction: column
+  background-color: rgba(255,255,255,.9)
+  z-index: 1002
+  height: 120px
+  font-size: 32px
+  border-bottom: 3px solid rgba(0,0,0,.8)
+.kickBanner
+  display: none
+.blackBars
+  background-color: rgba(0,0,0,.9)
 </style>
+
+<script>
+  export default{
+    methods: {      
+      processBars(){
+        function hamburger(bar,banner,icon){
+        bar.classList.toggle('showNav')
+        banner.classList.toggle('kickBanner') 
+        icon.classList.toggle('blackBars')      
+        }
+        let mobBar = this.$refs.nbar
+        let banner = this.$refs.banner
+        let bars = this.$refs.bars
+        let menuLinks = document.querySelectorAll('a')
+        console.log(menuLinks)
+        hamburger(mobBar, banner, bars)
+        menuLinks.forEach(function(menuLink){ 
+        menuLink.addEventListener("click", hamburger(mobBar, banner, bars)) 
+        })
+      }
+    }
+  }
+</script>

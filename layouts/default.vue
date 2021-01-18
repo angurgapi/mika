@@ -44,7 +44,7 @@ html
   color: rgba(209, 75, 133, .8)
 @media(max-width:500px)
   .section-headline
-    font-size: 28px
+    font-size: 26px
 
 </style>
 
