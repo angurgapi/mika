@@ -29,14 +29,14 @@ html
   box-sizing: border-box
   margin: 0
   overflow-x: hidden
-
+a
+  color: #000
 .section 
   display: flex
   flex-direction: column
   justify-content: center
   align-items: center
   width: 100%
-  padding: 20px
 
 .section-headline
   font-family: 'Montserrat'
@@ -81,10 +81,10 @@ html
   font-size: 18px
   transition: 0.6s ease
   user-select: none
-.prev 
-  left: 35px
-.next
-  right: 35px
+// .prev 
+//   left: 35px
+// .next
+//   right: 35px
 </style>
 
 <script>

@@ -2,9 +2,9 @@
 <div class="sliderBlock">
   <div class="prev qualification__prev" @click="plusSlides(-1)"> &#10094;</div>
 	<div class="qualification__slide" v-for="(image, i) in images" :key="i">
-    <img class="slide__img" :src="image.src"/>     
+    <img class="qualification__slide__img" :src="image.src"/>     
   </div>
-  <div class="qualification__next" @click="plusSlides(1)">&#10095;</div>
+  <div class="next qualification__next" @click="plusSlides(1)">&#10095;</div>
   
 </div>
 </template>
@@ -13,10 +13,11 @@
 
 .sliderBlock
   overflow: hidden  
-  max-width: 90%
+  width: 100% 
   height: auto
   display: flex  
   align-items: center
+  justify-content: center
   border-radius: 5px
 .qualification
   &__slide
@@ -24,9 +25,12 @@
     color: #fff
     display: none		
     justify-content: center
+    // width: 500px
+    max-width: 90%
     &__img
       width: 100%
       height: auto
+      margin: auto
   &__prev, &__next 
     cursor: pointer
     position: relative
@@ -46,10 +50,10 @@
     font-size: 18px
     transition: 0.6s ease
     user-select: none
-  &__prev 
-    left: 35px
-  &__next
-    right: 35px
+  // &__prev 
+  //   left: 35px
+  // &__next
+  //   right: 35px
 
 .fade
   -webkit-animation-name: fade

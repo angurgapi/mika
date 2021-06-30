@@ -1,22 +1,23 @@
 <template>
-  <div class='header'>    
-    <NuxtLink to='/'>
-      <div class="logo-block">
-        <img class='logo-img' src="/img/nail_logo.webp">
-        <div class="mikanails">mika nails</div>
-      </div>
-    </NuxtLink>
+  <div class='header'>
+    <div class="navigation">    
+      <a href='/'>
+        <div class="logo-block">
+          <img class='logo-img' src="/img/nail_logo.webp">
+          <div class="mikanails">mika nails</div>
+        </div>
+      </a>
+          
+      <div class="navbar" ref='nbar'>
+        <NuxtLink to='/'>мастер</NuxtLink>
+        <NuxtLink to='/prices'>цены</NuxtLink>
+        <NuxtLink to='/contacts'>контакты</NuxtLink>
+      </div>        
         
-    <div class="navbar" ref='nbar'>
-      <NuxtLink to='/'>мастер</NuxtLink>
-      <NuxtLink to='/prices'>цены</NuxtLink>
-      <NuxtLink to='/contacts'>контакты</NuxtLink>
-    </div>        
-      
-    <div class='hamburger' @click='processBars()' ref='bars'>
-      <font-awesome-icon :icon="['fas', 'bars']" class='hambars'/>
-    </div> 
-    
+      <!-- <div class='hamburger' @click='processBars()' ref='bars'>
+        <font-awesome-icon :icon="['fas', 'bars']" class='hambars'/>
+      </div>  -->
+    </div>
     <div class="header-img" ref='banner'>
       <p class='slogan'>Влюбись в свои руки</p><p class="slogan">уже сегодня</p>
     </div>    
@@ -52,6 +53,7 @@
     width: 30px
 .header-img
   height: 450px
+  margin-top: 100px
   background-image: url('/img/banners/5.webp')
   background-size: cover
   display: flex
@@ -74,9 +76,6 @@
 .logo-block
   width: 75px
   height: 75px
-  position: absolute
-  top: 20px
-  left: 40px
   display: flex
   flex-direction: column
   align-items: center
@@ -89,12 +88,18 @@
   text-align: center
   font-size: 18px
   font-family: 'Pangolin'
-
-.navbar
-  height: 130px
+.navigation
   width: 100%
-  display: flex
-  justify-content: center
+  background-color: #fff
+  box-shadow: 0 0 10px rgba(0,0,0,.3)
+  justify-content: space-between
+  z-index: 1100
+  position: fixed
+  a
+    margin-left: 10px
+.navbar, .navigation
+  height: 100px  
+  display: flex  
   align-items: center  
   flex-direction: row
   padding-left: 0
@@ -112,13 +117,9 @@
     color: rgba(0,0,0,.5)  
 .nuxt-link, .nuxt-link-active
   text-decoration: none
-  color: rgba(0,0,0,.8)  
-
+  color: rgba(0,0,0,.8)
 
 @media(max-width: 700px)
-  .logo-block
-    top: 20px
-    left: 20px
   .hamburger
     display: flex
   .navbar
