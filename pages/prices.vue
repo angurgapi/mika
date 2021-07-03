@@ -19,7 +19,7 @@
         <img src='/img/rollover.jpg'/>
       </div>      
     </div>
-<div class="popup">
+<div class="popup card">
   <p>нажмите на сердечко, чтобы выбрать услугу и посмотреть итоговую сумму</p>
   <div class="close" @click='popup()'>понятно</div>
 </div>
