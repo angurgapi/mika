@@ -29,12 +29,6 @@
 
 <style scoped lang="sass">
 @font-face
-    font-family: 'Rubik'
-    font-style: normal
-    font-weight: 600
-    font-display: swap
-    src: url('~assets/fonts/Rubik.ttf') format('truetype')
-@font-face
     font-family: 'Amatic-Regular'
     font-style: normal
     font-weight: 600

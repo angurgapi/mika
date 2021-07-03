@@ -11,12 +11,6 @@
 </template>
 
 <style scoped lang='sass'>
-@font-face
-    font-family: 'RobotoMono'
-    font-style: normal
-    font-weight: 500
-    font-display: swap
-    src: url('~assets/fonts/RobotoMono.ttf') format('truetype')
 .wrapper
   margin: 70px auto
   display: flex

@@ -4,7 +4,7 @@
       <div class="navbar__left">
         <a class="navbar__link" href='/'>
           <div class="logo-block">
-            <img class='logo-img' src="/icon/icon.jpg">            
+            <img class='logo-img' src="/icon/icon.webp">            
           </div>
         </a>
       </div>

@@ -54,7 +54,7 @@
     height: 150px
     border-radius: 50%  
     margin-right: 30px
-    background-image: url('/img/portrait.jpg')
+    background-image: url('/img/portrait.webp')
     background-size: cover
     
   &__quotation    
