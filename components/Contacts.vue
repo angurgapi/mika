@@ -1,5 +1,5 @@
 <template>
-  <div class="main-block">
+  <div class="contacts section" id='contacts'>
     <div class="contact-block">
   
       <div class="contact-list">
@@ -33,13 +33,6 @@ export default {
 </script>
 
 <style scoped lang="sass">
-.main-block
-  max-width: 100%
-  margin: 0
-  display: flex
-  justify-content: center
-  align-items: center
-
 .contact-block
   margin: 40px auto 70px auto
   width: 90%

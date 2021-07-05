@@ -37,6 +37,7 @@ a
   justify-content: center
   align-items: center
   width: 100%
+  overflow: hidden
 
 .section-headline
   font-family: 'Montserrat'

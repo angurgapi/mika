@@ -2,15 +2,16 @@
   <div class="main-block">    
     <About />
     <div class="works">
-        <h2 class="section-headline"><span class='marked'>Р</span>аботы</h2>        
+        <h2 class="section-headline"><span class='marked'>Р</span>аботы</h2>    
         
     </div>
     <Carousel />
     <Card />
     <h2 class='section-headline'><span class='marked'>В</span>ажны все этапы работы с ногтями</h2>
     <p class="handwritten">...и я не забываю об этом!</p>
-    <StagesGrid />     
-    </div>
+    <StagesGrid />    
+    <Prices />
+    <Contacts />
   </div>
 </template>
 
@@ -68,8 +69,11 @@ import Carousel from '@/components/Carousel'
 import StagesGrid from '@/components/StagesGrid'
 import Card from '@/components/Card'
 import About from '@/components/About'
+import Prices from '@/components/Prices'
+import Contacts from '@/components/Contacts'
 
 export default {
+
   
 }
 </script>

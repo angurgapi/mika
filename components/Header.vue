@@ -8,17 +8,18 @@
           </div>
         </a>
       </div>
-      <div class="navbar__right" ref='links'>
-        <NuxtLink class="navbar__link" to='/'>мастер</NuxtLink>
-        <NuxtLink class="navbar__link" to='/prices'>цены</NuxtLink>
-        <NuxtLink class="navbar__link" to='/contacts'>контакты</NuxtLink>
+      <div class="navbar__right" @click='mobileMenuClose()' ref='links'>
+        <NuxtLink class="navbar__link" to='#about'>мастер</NuxtLink>
+        <NuxtLink class="navbar__link" to='#prices'>цены</NuxtLink>
+        <NuxtLink class="navbar__link" to='#contacts'>контакты</NuxtLink>
       </div>     
-       <div class='hamburger' @click='processBars()' ref='bars'>
-        <font-awesome-icon :icon="['fas', 'bars']" class='hambars'/>
-      </div> 
-    </div>
-
-     
+       <!-- <div class="menuToggle" @click='mobileMenuOpen ? mobileMenuOpen = false : mobileMenuOpen = true'>     -->
+        <div class="menuToggle" @click='processBars()' ref='menuToggle'>     
+          <font-awesome-icon v-if='!this.mobileMenuOpen' :icon="['fas', 'bars']" class="menuToggle__icon" />
+          <font-awesome-icon v-else :icon="['fas', 'times']" class="menuToggle__icon"/>  
+       
+      </div>
+    </div>     
 
     <div class="header-img" ref='banner'>
       <p class='slogan'>Влюбись в свои руки</p><p class="slogan">уже сегодня</p>
@@ -39,20 +40,7 @@
   display: flex
   flex-direction: column
   box-shadow: 0 0 20px rgba(255,255,255,.7)
-.hamburger
-  position: absolute
-  z-index: 1010
-  right: 30px
-  top: 30px
-  height: 40px
-  width: 40px
-  display: none
-  align-items: center
-  justify-content: center
-  .hambars
-    // color: #fff
-    height: 30px
-    width: 30px
+
 .header-img
   height: 450px
   margin-top: 100px
@@ -74,6 +62,8 @@
     line-height: 7.8rem
     max-width: 90%
     text-align: center
+  @media(max-width: 600px) 
+    display: none
 .logo-block
   width: 75px
   height: 75px
@@ -114,9 +104,18 @@
   text-decoration: none
   color: rgba(0,0,0,.8)
 
-@media(max-width: 700px)
-  .hamburger
-    display: flex
+.menuToggle 
+  display: none
+  text-align: center
+  width: 40px
+  height: 40px
+  &__icon
+    font-size: 22px
+    height: 40px
+    width: 40px
+  @media(max-width: 600px)
+    display: block
+@media(max-width: 600px) 
   .navbar__right
     display: none
   .header-img
@@ -127,47 +126,59 @@
   .nav-link
     a
       font-size: 22px
-.showNav
-  display: flex
-  width: 100%  
-  flex-direction: column
-  align-items: center  
-  z-index: 1102
-  font-size: 22px
 
-.columned-menu
-  display: flex
+.extended 
   height: 200px
+.showLinks
+  display: flex
+  height: 100%
   flex-direction: column
-  width: 100%
-.kickBanner
-  display: none
-.blackBars
-  background-color: rgba(0,0,0,.9)
-  color: #fff
+  align-items: center
+  justify-content: center
+// #menu
+//   position: absolute
+//   width: 300px
+//   margin: -100px 0 0 -50px
+//   padding: 50px
+//   padding-top: 125px
+  
+//   background: #ededed
+//   list-style-type: none
+//   -webkit-font-smoothing: antialiased
+  
+//   transform-origin: 0% 0%
+//   transform: translate(-100%, 0)
+  
+//   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0)
+// #menu li
+//   padding: 10px 
+//   font-size: 22px
+// #menuToggle input:checked ~ ul
+//   transform: none
+ 
 </style>
 
 <script>
   export default{
-    methods: {      
-      processBars(){
-        function hamburger(bar, links, banner, icon){
-          links.classList.toggle('showNav')
-          bar.classList.toggle('columned-menu')
-          banner.classList.toggle('kickBanner') 
-          icon.classList.toggle('blackBars')      
-          }
-          let mobBar = this.$refs.navbar
-          let banner = this.$refs.banner
-          let bars = this.$refs.bars
-          let links = this.$refs.links
-          let menuLinks = document.querySelectorAll('a')
-          
-          hamburger(mobBar, links, banner, bars)
-          menuLinks.forEach(function(menuLink){ 
-          menuLink.addEventListener("click", hamburger(mobBar, links, banner, bars)) 
-        })
+    data(){
+      return {
+        mobileMenuOpen: false
       }
+    },
+    methods: {     
+       mobileMenuClose(){
+        if (this.mobileMenuOpen){
+          this.$refs.menuToggle.click()
+        }
+        
+      
+      },
+      processBars(){
+        this.mobileMenuOpen ? this.mobileMenuOpen = false : this.mobileMenuOpen = true
+        this.$refs.navbar.classList.toggle('extended')
+        this.$refs.links.classList.toggle('showLinks')
+      },
+     
     }
   }
 </script>

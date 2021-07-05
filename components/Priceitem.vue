@@ -1,7 +1,7 @@
 <template>
 <div class="service-item">
    <h2 class="position">{{ title }}</h2>
-   <p class="price">{{ value }} <span>р</span></p>
+   <p class="price">{{ value }} р</p>
    <input class='invisible' type="checkbox" :id="`${id}`" @click='calculate()'>
    <label class='heart' :for="`${id}`"></label>      
 </div>
@@ -21,8 +21,6 @@
   margin-right: 15px
   min-width: 70px
   text-align: right
-  span
-    text-decoration: underline
 .invisible
   position: relative
   z-index: -1000

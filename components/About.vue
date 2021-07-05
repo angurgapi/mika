@@ -1,5 +1,5 @@
 <template>
-<div class='about section'>
+<div class='about section' id='about'>
 	<div class='about__master'>
     <h1 class="section-headline"><span class='marked'>М</span>астер маникюра Махлие Умурзакова</h1>
       <div class='about__master__body'>

@@ -1,12 +1,14 @@
 <template>
-  <div class="main-block">  
-    
-    <div class='prices-block'>
-      
+  <div class="prices section" id='prices'>    
+    <h2 class="section-headline"><span class="marked">Ц</span>ены</h2>
+    <div class="popup card">
+        <p>Нажмите на сердечко, чтобы выбрать услугу и посмотреть итоговую сумму</p>
+        <div class="close" @click='popup()'>OK</div>
+    </div>
+    <div class='prices__block'>      
       <Priceitem 
-      v-for='item in priceitems' :key='item.id' :id='item.id' :title='item.title' :value='item.value' />  
-
-      <div class="total">Итого: {{ total }} <span>р</span></div> 
+      v-for='item in priceitems' :key='item.id' :id='item.id' :title='item.title' :value='item.value' />
+      <div class="total">Итого: {{ total }} р</div> 
     </div>   
 
     <div class="discounts">       
@@ -19,10 +21,7 @@
         <img src='/img/rollover.jpg'/>
       </div>      
     </div>
-<div class="popup card">
-  <p>нажмите на сердечко, чтобы выбрать услугу и посмотреть итоговую сумму</p>
-  <div class="close" @click='popup()'>понятно</div>
-</div>
+
 </div>
 </template>
 
@@ -34,12 +33,7 @@
     font-weight: 600
     font-display: swap
     src: url('~assets/fonts/Amatic-Regular.ttf') format('truetype')   
-.main-block
-  max-width: 100%
-  margin: 0
-  display: flex
-  flex-direction: column
-  align-items: center
+
 
 .service-item
   width: 90%
@@ -50,10 +44,9 @@
   justify-content: space-between
   align-items: center
   font-family: 'Montserrat'
-  font-size: 24px
-.prices-block
+  font-size: 20px
+.prices__block
   min-width: 80%
-  margin-top: 50px
 
 .pricebox
   display: flex
@@ -103,16 +96,14 @@ h4
 
 .popup
   width: 50vw
-  position: absolute
-  top: 40%
+  position: relative
+  top: 30px
   opacity: .9
   background-color: #fff
-  z-index: 1010
-  border: 2px solid rgba(0,0,0,.4)
+  z-index: 1010 
   padding: 1rem
   p
-    font-size: 36px
-    width: 80%
+    font-size: 26px   
     text-align: center
     margin: auto
     font-family: 'Pangolin'
@@ -126,7 +117,7 @@ h4
     box-shadow: 2px 2px 5px #7a103e
     color: #fff
     font-size: 1.6rem
-    font-family: 'RobotoMono'
+    font-family: 'Montserrat'
     text-align: center
     display: flex
     align-items: center
@@ -141,8 +132,6 @@ h4
     letter-spacing: 7px
   .service-item
     width: 95%
-  .main-block
-    top: -120px
   .discounts
     width: 95%
     p
@@ -151,8 +140,6 @@ h4
     width: 90vw
     p
       font-size: 28px
-  span
-    font-size: 14px
 
 @media(max-width:330px)
   .discount-text
@@ -162,34 +149,34 @@ h4
 </style>
 
 <script>
-import Priceitem from '@/components/Priceitem'
+import Priceitem from './Priceitem'
 export default {
-  asyncData(context){
-    return context.app.$storyapi
-    .get('cdn/stories',
-    {
-      version: 'draft',
-      starts_with: 'priceblock/'
-    })
-    .then(res => {      
-      return{
-      priceitems: res.data.stories.map(it => {
-        return {       
-        title: it.content.title,
-        value: it.content.value,
-        id: it.id
-      }
-      })
-    }
-    })
-  },
+ 
   data(){
     return{  
-      total: 0
+      total: 0,
+      priceitems: []
     }
   },
 
   methods: {
+    async getPrices(context){
+        let response = await this.$nuxt.context.app.$storyapi.get('cdn/stories', {
+            version: 'draft',
+            starts_with: 'priceblock/'
+        })
+       
+        this.priceitems = response.data.stories.map(it => {
+            return {       
+                title: it.content.title,
+                value: it.content.value,
+                id: it.id
+            }
+        })
+
+    
+ 
+    },
     popup(){
       event.target.parentNode.style.display = 'none'
     },
@@ -202,6 +189,10 @@ export default {
         this.total -= sum
       }
     }
-  }  
+  },
+  mounted() {
+    this.getPrices()
+  }
+
 }
 </script>
